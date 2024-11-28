@@ -1,4 +1,14 @@
+# Ignore node_modules but still include build output
 node_modules/
-dist/
+
+# Allow the dist or build folder to be tracked
+!dist/      # Use this if your build output is in 'dist/'
+!build/     # Use this if your build output is in 'build/'
+
+# Ignore sensitive files and system files
 *.env
-.DS_Store 
+.DS_Store
+
+# Other temp files
+.cache/
+.vscode/
