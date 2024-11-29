@@ -25,7 +25,7 @@ export default function Cart(){
           <button onClick={ () => removeItem(carts.id)}>Remove</button>
     </article>
   )):<div className="empty">
-      <p>Your cart is empty</p>
+      <p>Your cart i empty</p>
   </div>
     return (
       <>
