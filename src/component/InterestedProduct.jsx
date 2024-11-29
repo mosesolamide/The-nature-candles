@@ -57,7 +57,7 @@ export default function InterestedProduct(){
                 </div>
                 <div className="interested-product-shipping">
                     <p>All hand-made with natural soy wax, Candleaf is made for your pleasure moments.</p>
-                    <small>🚚 FREE SHIPPI</small>
+                    <small>🚚 FREE SHIPPING</small>
                 </div>
             </div>
 
