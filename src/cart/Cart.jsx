@@ -22,10 +22,11 @@ export default function Cart(){
               <p>{`${carts.name}`}</p>
               <b>{`${carts.price}`}</b>
           </div>
+          
           <button onClick={ () => removeItem(carts.id)}>Remove</button>
     </article>
   )):<div className="empty">
-      <p>Your cart i empty</p>
+      <p>Your cart is empty</p>
   </div>
     return (
       <>

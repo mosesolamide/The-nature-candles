@@ -1,4 +1,4 @@
-import React, {useContext} from "react"
+import React from "react"
 import { useLocation } from "react-router-dom"
 import { useState } from "react"
 
@@ -57,7 +57,7 @@ export default function InterestedProduct(){
                 </div>
                 <div className="interested-product-shipping">
                     <p>All hand-made with natural soy wax, Candleaf is made for your pleasure moments.</p>
-                    <small>🚚 FREE SHIPPING</small>
+                    <small>🚚 FREE SHIPPI</small>
                 </div>
             </div>
 
