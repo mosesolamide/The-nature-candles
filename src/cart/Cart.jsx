@@ -13,8 +13,11 @@ export default function Cart(){
   },[])
 
   const removeItem = (currentId) => {
+    // filter out items that are not equall to the item remove from the storage
     const updateCart = cart.filter(item => item.id !== currentId)
+    // then update the cart 
     setCart(updateCart)
+    // then also update the localstorage
     localStorage.setItem("cart", JSON.stringify(updateCart))
   }
 

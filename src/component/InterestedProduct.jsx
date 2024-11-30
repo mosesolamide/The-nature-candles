@@ -1,4 +1,4 @@
-import React from "react"
+import React ,{useEffect}from "react"
 import { useLocation } from "react-router-dom"
 import { useState } from "react"
 import { useContext } from "react"
@@ -6,31 +6,53 @@ import { Quatity } from "../App"
 
 export default function InterestedProduct(){
      const location = useLocation()
+
      const previewProduct = location.state
+
      const [selectedOption, setSelectedOption] = useState({
         purchaseType:""
      })
      
      const {incrementQuatity,decrementQuatity,quatity} = useContext(Quatity)
-    
+
+     const [isAdded, setIsAdded] = useState(false)    
      
-     const [cart,setCart] = useState([JSON.parse(localStorage.getItem("cart"))] || [])
+    //  const [cart,setCart] = useState([JSON.parse(localStorage.getItem("cart"))] || [])
+
+     useEffect(() => {
+        // existing cart in the localstorage
+        const existingCarts = JSON.parse(localStorage.getItem("cart")) || []
+
+        // check again after rerender if there is another items that are the same in the existing cart
+        const productInCart = existingCarts.find(item => item.id === previewProduct.id)
+
+        if (productInCart) {
+            setIsAdded(true) // Disable the "Add to Cart" button if the product is in the cart
+        }
+    }, [])
 
      function addToCart(e){
         e.preventDefault()
+        // get what isi in the localstorage currently
         const existingCart = JSON.parse(localStorage.getItem("cart")) || []
 
+        // take the existing cart in the localstorage and store the current one
         const updateCart = [...existingCart, {...previewProduct}]
 
+        // update the storage with the current added cart
         localStorage.setItem("cart", JSON.stringify(updateCart))
-         
-        setCart(updateCart)
-     }
-//   localStorage.removeItem("cart")
 
-    //  function to increment the quattity of product and decrement it also 
-    
-     
+        // update the cart state
+        // setCart(updateCart)
+
+        // set isAdded back to true after the user click on the button 
+        setIsAdded(true)
+
+        window.alert("Product Added!!!")
+     }
+
+
+    //  function to increment the quattity of product and decrement it also     
      function handleChange(e){  
         const {name, value} = e.target
         setSelectedOption(prev => ({
@@ -43,6 +65,7 @@ export default function InterestedProduct(){
         e.preventDefault()
         console.log(e.target.value)
      }
+
 
 
     return(
@@ -107,7 +130,11 @@ export default function InterestedProduct(){
                                 </div>
                                 <div>
                                      <button className="cart--button left" onClick={preceedToPayment}>Proceed to payment</button>
-                                     <button className="cart--button" onClick={addToCart}>+ Add to Cart</button>
+                                     <button className="cart--button" 
+                                         style={isAdded ? { backgroundColor: "#e0e0e0" , cursor: "not-allowed"} : {}} 
+                                         disabled={isAdded} onClick={addToCart}>
+                                        + Add to Cart
+                                    </button>
                                 </div>
                             </form>
                             <div className="product--details">
