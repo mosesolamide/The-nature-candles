@@ -1,15 +1,18 @@
 import React from "react"
 import { useLocation } from "react-router-dom"
 import { useState } from "react"
+import { useContext } from "react"
+import { Quatity } from "../App"
 
 export default function InterestedProduct(){
      const location = useLocation()
      const previewProduct = location.state
-     const [quatity, setQuatity] = useState(1)
      const [selectedOption, setSelectedOption] = useState({
         purchaseType:""
      })
      
+     const {incrementQuatity,decrementQuatity,quatity} = useContext(Quatity)
+    
      
      const [cart,setCart] = useState([JSON.parse(localStorage.getItem("cart"))] || [])
 
@@ -26,13 +29,6 @@ export default function InterestedProduct(){
 //   localStorage.removeItem("cart")
 
     //  function to increment the quattity of product and decrement it also 
-     function incrementQuatity(){
-        setQuatity( prev => prev + 1)
-     }
-
-     function decrementQuatity(){
-        setQuatity( prev => prev - 1)
-     }
     
      
      function handleChange(e){  

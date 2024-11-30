@@ -534,6 +534,20 @@ form label{
 .empty p{
     margin-top: 200px;
 }
+
+.carts--product{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px 20px;
+    margin-top: 20px;
+    margin-bottom: 90px
+}
+
+.remove{
+    width: 230px;
+}
+
 /* media query */
 
 @media(min-width:600px){

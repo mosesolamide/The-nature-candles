@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
+import { Quatity } from "../App"
 
 export default function Cart(){
+
+  const {incrementQuatity,decrementQuatity,quatity} = useContext(Quatity)
 
  const [cart, setCart] = useState([])
 
@@ -16,21 +19,26 @@ export default function Cart(){
   }
 
     const cartProduct = cart.length > 0 ? cart.map((carts, index) =>(
-      <article className="products--items" key={index}>
+        <article className="products--items mg" key={index}>
           <img src={`assets/${carts.img}`} alt="images of candles" />
           <div className="price--name--tag">
               <p>{`${carts.name}`}</p>
               <b>{`${carts.price}`}</b>
           </div>
-          
-          <button onClick={ () => removeItem(carts.id)}>Remove</button>
+          <div className="quatity">
+              <p onClick={incrementQuatity}>+</p>
+              <p>{quatity}</p>
+              <p onClick={decrementQuatity}>-</p>
+          </div>
+          <button className="cart--button remove" onClick={ () => removeItem(carts.id)}>Remove</button>
     </article>
   )):<div className="empty">
       <p>Your cart is empty</p>
   </div>
     return (
-      <>
+      <div className="carts--product">
         {cartProduct}
-      </>
+
+      </div>
     )
 }
