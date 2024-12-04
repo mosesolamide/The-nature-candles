@@ -1,0 +1,55 @@
+/* chaining part */
+.cart--img--name,
+.carts--product,
+.remove--cart{
+    display: flex;
+}
+
+.carts--product{
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px 20px;
+    margin: 20px 0 0 50px;
+}
+
+.remove{
+    padding: 7px 30px;
+    background-color: #fff;
+    border: 1px solid #56B280;
+    border-radius: 3px;
+}
+
+.remove:hover{
+    background-color: #56B280;
+    color: #fff;
+}
+
+.carts-product-img{
+    width: 90px;
+}
+
+.cart--img--name{
+    margin-left: 15px;
+    align-items: center;
+    width: 93%;
+}
+
+.cart--img--name b{
+    margin-left: auto;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.cart--main{
+    width: 70%;
+}
+
+
+.remove--cart{
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width: 91%;
+    margin: 0 0 20px 40px;
+}
