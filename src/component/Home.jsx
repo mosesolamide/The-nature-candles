@@ -12,7 +12,7 @@ export default function Home(){
                 </Link>
                 <div className="price--name--tag">
                     <p>{`${item.name}`}</p>
-                    <b>{`${item.price}`}</b>
+                    <b>{`$${item.price}`}</b>
                 </div>
            </article>
     ))

@@ -3,8 +3,10 @@ import { useLocation } from "react-router-dom"
 import { useState } from "react"
 import { useContext } from "react"
 import { Quatity } from "../App"
+import { motion } from "framer-motion"
 
 export default function InterestedProduct(){
+    
      const location = useLocation()
 
      const previewProduct = location.state
@@ -13,7 +15,7 @@ export default function InterestedProduct(){
         purchaseType:""
      })
      
-     const {incrementQuatity,decrementQuatity,quatity} = useContext(Quatity)
+     const {incrementQuatity,decrementQuatity,quatity,buttonVariants} = useContext(Quatity)
 
      const [isAdded, setIsAdded] = useState(false)    
      
@@ -66,8 +68,6 @@ export default function InterestedProduct(){
         console.log(e.target.value)
      }
 
-
-
     return(
         <div className="card--interested">
             <div className="box-one-interested">
@@ -89,7 +89,7 @@ export default function InterestedProduct(){
                     <div className="selected">
 
                         <div className="general--quatity">
-                            <p className="interested--price">{previewProduct.price}</p>
+                            <p className="interested--price">${previewProduct.price}</p>
                             <label>Quantity</label>
                             <div className="quatity">
                                 <p onClick={incrementQuatity}>+</p>
@@ -129,12 +129,23 @@ export default function InterestedProduct(){
                                     <p>Subscribe now and get the 10% of discount on every recurring order. The discount will be applied at checkout. <span>See details</span></p>
                                 </div>
                                 <div>
-                                     <button className="cart--button left" onClick={preceedToPayment}>Proceed to payment</button>
-                                     <button className="cart--button" 
+                                     <motion.button 
+                                        className="cart--button left" 
+                                        onClick={preceedToPayment}
+                                        variants={buttonVariants}
+                                        whileHover="hover" // Trigger the hover animation
+                                     >
+                                        Proceed to payment
+                                     </motion.button>
+                                     <motion.button 
+                                        className="cart--button" 
                                          style={isAdded ? { backgroundColor: "#e0e0e0" , cursor: "not-allowed"} : {}} 
-                                         disabled={isAdded} onClick={addToCart}>
+                                         disabled={isAdded} onClick={addToCart}
+                                         variants={buttonVariants}
+                                         whileHover={ !isAdded ? "hover": ""} // Trigger the hover animation
+                                         >
                                         + Add to Cart
-                                    </button>
+                                    </motion.button>
                                 </div>
                             </form>
                             <div className="product--details">

@@ -2,7 +2,7 @@ export const arrOfProducts = [
     {
         img:"imagesForCandle.png",
         id: 1,
-        price:"$900",
+        price:900,
         name:"Sweet Straweberry",
         wax:"Top grade Soy wax that delivers a smoke less, consistent burn",
         weight:"500g",
@@ -13,7 +13,7 @@ export const arrOfProducts = [
     {
         img:"imageForCandle1.png",
         id: 2,
-        price:"$800",
+        price:800,
         name:"Spiced Mint",
         wax:"Top grade Soy wax that delivers a smoke less, consistent burn",
         weight:"400g",
@@ -24,7 +24,7 @@ export const arrOfProducts = [
     {
         img:"imageForCandle2.png",
         id: 3,
-        price:"$1000",
+        price:1000,
         name:"Cool Blueberries",
         wax:"Top grade Soy wax that delivers a smoke less, consistent burn",
         weight:"600g",
@@ -35,7 +35,7 @@ export const arrOfProducts = [
     {
         img:"imageForCandle3.png",
         id: 4,
-        price:"$200",
+        price:200,
         name:"Juicy Lemon",
         wax:"Top grade Soy wax that delivers a smoke less, consistent burn",
         weight:"900g",
@@ -46,7 +46,7 @@ export const arrOfProducts = [
     {
         img:"imageForCandle4.png",
         id: 5,
-        price:"$400",
+        price:400,
         name:"Product name",
         wax:"Top grade Soy wax that delivers a smoke less, consistent burn",
         weight:"300g",
@@ -57,7 +57,7 @@ export const arrOfProducts = [
     {
         img:"imageForCandle5.png",
         id: 6,
-        price:"$100",
+        price:100,
         name:"Fragrant Cinnamon",
         wax:"Top grade Soy wax that delivers a smoke less, consistent burn",
         weight:"500g",
@@ -68,7 +68,7 @@ export const arrOfProducts = [
     {
         img:"imageForCandle6.png",
         id: 7,
-        price:"$2000",
+        price:2000,
         name:"Summer Cherries",
         wax:"Top grade Soy wax that delivers a smoke less, consistent burn",
         weight:"500g",
@@ -79,7 +79,7 @@ export const arrOfProducts = [
     {
         img:"imageForCandle7.png",
         id: 8,
-        price:"$3000",
+        price:3000,
         name:"Clean Lavander",
         wax:"Top grade Soy wax that delivers a smoke less, consistent burn",
         weight:"1000g",

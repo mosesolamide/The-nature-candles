@@ -10,6 +10,18 @@ export const Quatity = createContext()
 
 export default function App() {
 
+  const buttonVariants = {
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "reverse",
+      },
+    },
+  }
+
   const [quatity, setQuatity] = useState(1)
 
   function incrementQuatity(){
@@ -21,7 +33,7 @@ export default function App() {
   }
 
   return (
-    <Quatity.Provider value={{incrementQuatity,decrementQuatity,quatity}}>
+    <Quatity.Provider value={{incrementQuatity,decrementQuatity,quatity,buttonVariants}}>
       <BrowserRouter
         future={{
           v7_startTransition: true, // Opt into startTransition behavior

@@ -5,21 +5,12 @@ import "./Cart.css"
 
 export default function Cart(){
 
-  const buttonVariants = {
-    hover: {
-      scale: 1.1,
-      transition: {
-        duration: 0.5,
-        ease: "easeInOut",
-        repeat: Infinity,
-        repeatType: "reverse",
-      },
-    },
-  }
 
-  const {incrementQuatity,decrementQuatity,quatity} = useContext(Quatity)
+  const {incrementQuatity,decrementQuatity,quatity,buttonVariants} = useContext(Quatity)
 
  const [cart, setCart] = useState([])
+ 
+ const pricesOfCartProduct = cart.map( prices => prices.price)
 
   useEffect( () => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || []
@@ -35,41 +26,58 @@ export default function Cart(){
     localStorage.setItem("cart", JSON.stringify(updateCart))
   }
 
-    const cartProduct = cart.length > 0 ? cart.map((carts, index) =>(
-      <article className="cart--main" key={index}>
-          <div className="cart--img--name">
-            <img src={`assets/${carts.img}`} alt="img of product" className="carts-product-img" />
-            <p>{`${carts.name}`}</p>
-            <b>{`${carts.price}`}</b>
-          </div>
-          <div className="remove--cart">
-            <div className="quatity">
-              <p onClick={incrementQuatity}>+</p>
-              <p>{quatity}</p>
-              <p onClick={decrementQuatity}>-</p>
-            </div>
-            <motion.button
-            className="remove"
-            onClick={removeItem}
-            variants={buttonVariants}
-            whileHover="hover" // Trigger the hover animation
-          >
-            Remove
-          </motion.button>
+  const totalPriceOfCart = pricesOfCartProduct.reduce((sum, price) => sum + price, 0)
 
-          </div>
-          <hr />
-      </article>
+    const cartProduct = cart.length > 0 ? cart.map((carts, index) =>(
+      <div className="carts--product">
+         <article className="cart--main" key={index}>
+              <div className="cart--img--name">
+                  <img src={`assets/${carts.img}`} alt="img of product" className="carts-product-img" />
+                  <p>{`${carts.name}`}</p>
+                  <b>{`$${carts.price}`}</b>
+              </div>
+              <div className="remove--cart">
+                <div className="quatity">
+                    <p onClick={incrementQuatity}>+</p>
+                    <p>{quatity}</p>
+                    <p onClick={decrementQuatity}>-</p>
+                </div>
+                <motion.button
+                  className="remove"
+                  onClick={ () => removeItem(carts.id)}
+                  variants={buttonVariants}
+                  whileHover="hover" // Trigger the hover animation
+              >
+                Remove
+              </motion.button>
+              </div>
+              <hr />
+        </article>
+
+        <div className="cart--summary">
+              <h1>CART SUMMARY</h1>
+              <div className="sub--total">
+                <p>Subtotal</p>
+                <p>${totalPriceOfCart}</p>
+              </div>
+              <motion.button 
+                className="checkout"
+                variants={buttonVariants}
+                whileHover="hover"
+              >
+              Checkout (${totalPriceOfCart})
+              </motion.button>
+        </div>
+      </div>
   )):<div className="empty">
       <p>Your cart is empty</p>
   </div>
+
   
     return (
-      <>
-        <div className="carts--product">
-            {cartProduct}
-        </div>
-      </>
+      <div className="main">
+          {cartProduct}
+      </div>
     )
 }
 
