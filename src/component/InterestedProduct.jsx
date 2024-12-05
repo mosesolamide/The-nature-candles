@@ -2,10 +2,12 @@ import React ,{useEffect}from "react"
 import { useLocation } from "react-router-dom"
 import { useState } from "react"
 import { useContext } from "react"
-import { Quatity } from "../App"
+import {QuantityContext } from "../App"
 import { motion } from "framer-motion"
 
 export default function InterestedProduct(){
+
+    const { incrementQuantity, decrementQuantity, quantities,buttonVariants } = useContext(QuantityContext);
     
      const location = useLocation()
 
@@ -15,8 +17,6 @@ export default function InterestedProduct(){
         purchaseType:""
      })
      
-     const {incrementQuatity,decrementQuatity,quatity,buttonVariants} = useContext(Quatity)
-
      const [isAdded, setIsAdded] = useState(false)    
      
     //  const [cart,setCart] = useState([JSON.parse(localStorage.getItem("cart"))] || [])
@@ -68,6 +68,11 @@ export default function InterestedProduct(){
         console.log(e.target.value)
      }
 
+     function incrementQuatity(){
+       const currentValue = document.getElementById("quatity").value
+       console.log(currentValue)
+     }
+
     return(
         <div className="card--interested">
             <div className="box-one-interested">
@@ -92,10 +97,10 @@ export default function InterestedProduct(){
                             <p className="interested--price">${previewProduct.price}</p>
                             <label>Quantity</label>
                             <div className="quatity">
-                                <p onClick={incrementQuatity}>+</p>
-                                <p>{quatity}</p>
-                                <p onClick={decrementQuatity}>-</p>
-                            </div>
+                                <p onClick={() => incrementQuantity(previewProduct.id)}>+</p>
+                                <p> {quantities[previewProduct.id] || 1}</p>
+                                <p onClick={() => decrementQuantity(previewProduct.id)}>-</p>
+                             </div>
                         </div>
 
                         <div>

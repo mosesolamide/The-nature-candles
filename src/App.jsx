@@ -4,9 +4,10 @@ import Layout from "./component/Layout"
 import Home from "./component/Home"
 import InterestedProduct from "./component/InterestedProduct"
 import Cart from "./cart/Cart"
-import { createContext, useState } from "react";
+import { createContext, useState } from "react"
+import Details from "./payment/Details"
 
-export const Quatity = createContext()
+export const QuantityContext = createContext();
 
 export default function App() {
 
@@ -22,18 +23,26 @@ export default function App() {
     },
   }
 
-  const [quatity, setQuatity] = useState(1)
+  const [quantities, setQuantities] = useState({});
 
-  function incrementQuatity(){
-    setQuatity( prev => prev + 1)
-  }
-  
-  function decrementQuatity(){
-    setQuatity((prev) => Math.max(prev - 1, 1))
-  }
+  // Increment quantity for a specific product
+  const incrementQuantity = (id) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: (prev[id] || 1) + 1,
+    }));
+  };
+
+  // Decrement quantity for a specific product
+  const decrementQuantity = (id) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [id]: Math.max((prev[id] || 1) - 1, 1),
+    }));
+  };
 
   return (
-    <Quatity.Provider value={{incrementQuatity,decrementQuatity,quatity,buttonVariants}}>
+    <QuantityContext.Provider value={{incrementQuantity, decrementQuantity, quantities,buttonVariants}}>
       <BrowserRouter
         future={{
           v7_startTransition: true, // Opt into startTransition behavior
@@ -46,8 +55,9 @@ export default function App() {
             <Route path="/cart" element={<Cart/>}/>
             <Route path="candle-product/:id" element={<InterestedProduct />} />
           </Route>
+          <Route path="details" element={<Details />}/>
         </Routes>
       </BrowserRouter>
-    </Quatity.Provider>
+    </QuantityContext.Provider>
   );
 }
