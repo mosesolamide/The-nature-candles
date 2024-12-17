@@ -1,20 +1,18 @@
 import React, { useEffect, useState, useContext } from "react"
 import { QuantityContext } from "../App"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 import "./Cart.css"
 
 export default function Cart(){
 
-  const { incrementQuantity, decrementQuantity, quantities,buttonVariants } = useContext(QuantityContext);
-
- const [cart, setCart] = useState([])
- 
- const pricesOfCartProduct = cart.map( prices => prices.price)
+const { incrementQuantity, decrementQuantity, quantities,buttonVariants } = useContext(QuantityContext)
+const [cart, setCart] = useState([])
 
   useEffect( () => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || []
     setCart(storedCart)
+    console.log(quantities)
   },[])
 
   const removeItem = (currentId) => {
@@ -27,13 +25,15 @@ export default function Cart(){
   }
   const navigate = useNavigate()
   const navigateToPayment = () =>{
-    navigate("/details")
+    navigate("/payment-progress")
   }
 
-  const totalPriceOfCart = pricesOfCartProduct.reduce((sum, price) => sum + price, 0)
+  const totalPriceOfCart = cart.reduce((sum, product) => {
+    const quantity = quantities[product.id] || 1
+    return sum + product.price * quantity
+  }, 0)
 
-    const cartProduct = cart.length > 0 ? cart.map((carts, index) =>(
-    
+  const cartProduct = cart.length > 0 ? cart.map((carts, index) =>(
          <article className="cart--main" key={index}>
               <div className="cart--img--name">
                   <img src={`assets/${carts.img}`} alt="img of product" className="carts-product-img" />
@@ -84,17 +84,3 @@ export default function Cart(){
       </div>
     )
 }
-
-{/* <article className="products--items mg" key={index}>
-<img src={`assets/${carts.img}`} alt="images of candles" />
-<div className="price--name--tag">
-    <p>{`${carts.name}`}</p>
-    <b>{`${carts.price}`}</b>
-</div>
-<div className="quatity">
-    <p onClick={incrementQuatity}>+</p>
-    <p>{quatity}</p>
-    <p onClick={decrementQuatity}>-</p>
-</div>
-<button className="cart--button remove" onClick={ () => removeItem(carts.id)}>Remove</button>
-</article> */}

@@ -6,6 +6,9 @@ import InterestedProduct from "./component/InterestedProduct"
 import Cart from "./cart/Cart"
 import { createContext, useState } from "react"
 import Details from "./payment/Details"
+import PaymentLayout from "./payment/PaymentLayout"
+import Shipping from "./payment/Shipping"
+import Payment from "./payment/Payment"
 
 export const QuantityContext = createContext();
 
@@ -23,15 +26,15 @@ export default function App() {
     },
   }
 
-  const [quantities, setQuantities] = useState({});
+  const [quantities, setQuantities] = useState({})
 
   // Increment quantity for a specific product
   const incrementQuantity = (id) => {
     setQuantities((prev) => ({
       ...prev,
       [id]: (prev[id] || 1) + 1,
-    }));
-  };
+    })) 
+  }
 
   // Decrement quantity for a specific product
   const decrementQuantity = (id) => {
@@ -41,8 +44,31 @@ export default function App() {
     }));
   };
 
+  const style = {
+    color: "#56B280",
+    fontWeight: 500
+}
+const viewed = {
+    color: "#000",
+    fontSize: "1rem",
+    fontWeight: 500
+} 
+const [isDetailsViewed,setIsDetailView] = useState(true)
+const [isShippingViewed,setIsShippingView] = useState(true)
+
   return (
-    <QuantityContext.Provider value={{incrementQuantity, decrementQuantity, quantities,buttonVariants}}>
+    <QuantityContext.Provider value={{
+      incrementQuantity,
+      decrementQuantity,
+      quantities,
+      buttonVariants,
+      isDetailsViewed,
+      setIsDetailView,
+      viewed,
+      style,
+      isShippingViewed,
+      setIsShippingView
+    }}>
       <BrowserRouter
         future={{
           v7_startTransition: true, // Opt into startTransition behavior
@@ -51,11 +77,15 @@ export default function App() {
       >
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/cart" element={<Cart/>}/>
-            <Route path="candle-product/:id" element={<InterestedProduct />} />
+              <Route index element={<Home />} />
+              <Route path="/cart" element={<Cart/>}/>
+              <Route path="candle-product/:id" element={<InterestedProduct />} />
           </Route>
-          <Route path="details" element={<Details />}/>
+          <Route path="/payment-progress" element={<PaymentLayout />}>
+            <Route index element={<Details />} />
+            <Route path="shipping" element={<Shipping />} />
+            <Route path="payment" element={<Payment />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </QuantityContext.Provider>

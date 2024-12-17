@@ -19,7 +19,6 @@ export default function InterestedProduct(){
      
      const [isAdded, setIsAdded] = useState(false)    
      
-    //  const [cart,setCart] = useState([JSON.parse(localStorage.getItem("cart"))] || [])
 
      useEffect(() => {
         // existing cart in the localstorage
@@ -68,10 +67,6 @@ export default function InterestedProduct(){
         console.log(e.target.value)
      }
 
-     function incrementQuatity(){
-       const currentValue = document.getElementById("quatity").value
-       console.log(currentValue)
-     }
 
     return(
         <div className="card--interested">
@@ -145,7 +140,8 @@ export default function InterestedProduct(){
                                      <motion.button 
                                         className="cart--button" 
                                          style={isAdded ? { backgroundColor: "#e0e0e0" , cursor: "not-allowed"} : {}} 
-                                         disabled={isAdded} onClick={addToCart}
+                                         disabled={isAdded} 
+                                         onClick={addToCart}
                                          variants={buttonVariants}
                                          whileHover={ !isAdded ? "hover": ""} // Trigger the hover animation
                                          >
