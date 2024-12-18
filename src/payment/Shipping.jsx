@@ -4,13 +4,14 @@ import { useNavigate} from "react-router-dom"
 
 
 export default function Shipping(){
-    const { setIsShippingView } = useContext(QuantityContext)
-     const navigate = useNavigate()
+const { setIsShippingView } = useContext(QuantityContext)
+const navigate = useNavigate()
 
-     const navigateToPayment = () =>{
-            navigate("/payment-progress/payment")
-            setIsShippingView(false)
-     }
+const navigateToPayment = () =>{
+    navigate("/payment-progress/payment")
+    setIsShippingView(false) 
+}
+
     return(
         <div>
             <h1>shippping</h1>

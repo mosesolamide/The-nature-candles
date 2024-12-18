@@ -45,13 +45,12 @@ export default function App() {
   };
 
   const style = {
-    color: "#56B280",
-    fontWeight: 500
+    color: "#56B280"
 }
 const viewed = {
     color: "#000",
     fontSize: "1rem",
-    fontWeight: 500
+    scale: 1
 } 
 const [isDetailsViewed,setIsDetailView] = useState(true)
 const [isShippingViewed,setIsShippingView] = useState(true)

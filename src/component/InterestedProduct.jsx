@@ -99,7 +99,7 @@ export default function InterestedProduct(){
                         </div>
 
                         <div>
-                            <form action="#">
+                            <form action="#" className="form">
                                 <div className="onetime">
                                     <input 
                                         type="radio" 

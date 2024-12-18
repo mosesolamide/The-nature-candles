@@ -471,16 +471,16 @@ hr{
     margin-right: 7px;
 }
 
-form{
+.form{
     margin-top: 14px;
 }
 
-form input[type="radio"] {
+.form input[type="radio"] {
     accent-color: #56B280; 
   }
 
-form label{
-    margin-left: 20px;  
+.form label{
+    margin-left: 20px;
     font-size: .95em;
 }
 
@@ -538,13 +538,14 @@ form label{
 /* payment css */
 .paymentBody{
     margin: 0 auto;
-    width: 59%;
+    width: 500px;
+    padding: 20px;
 }
 
 .progress{
     list-style-type: none;
     display: flex;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .progress li{
@@ -552,7 +553,120 @@ form label{
     font-size: 1em;
 }
 
+.details--first{
+    display: flex;
+    margin-top: 30px;
+    align-items: center;
+}
 
+.details--first p{
+    margin-left: auto;
+    color: #616161;
+    font-size: .9em;
+}
+
+.details--first h1{
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.details--first .link{
+    color: #56B280;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mobile---email{
+   width: 460px;
+   padding: 12px 10px;
+   margin-top: 15px;
+   border: 1px solid #56B280;
+   margin-bottom: 8px;
+}
+
+#checkbox--{
+    margin-right: 5px;
+}
+
+.checkbox--container{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox--container label{
+    font-weight: 400;
+    font-size: .9em;
+}
+
+.shipping--address{
+    margin-top: 40px;
+}
+
+.shipping--address h2{
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+.shipping--address input{
+    padding: 12px 20px;
+    border: 1px solid #56B280;
+}
+
+.wide{
+    width: 450px;
+    display: flex;
+    margin-top: 10px;
+}
+
+.wide input{
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #56B280;
+}
+
+.second--name{
+    margin-left: 20px;
+}
+
+.province{
+    width: 100%;
+    border: 1px solid #56B280;
+}
+
+.second--wide{
+    display: flex;
+    justify-content: space-between;
+}
+
+.second--wide #postal{
+    margin: 0 10px;
+}
+
+.padding{
+    padding: 12px 20px;
+    width: 98%;
+    margin-bottom: 5px;
+}
+
+.back-shipping{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 28px;
+    align-items: center;
+}
+
+.back-shipping button{
+    padding:7px 20px;
+    background-color: #56B280;
+    border: 0;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.back{
+    color: #56B280;
+}
 /* media query */
 
 @media(min-width:600px){

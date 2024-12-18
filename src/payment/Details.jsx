@@ -1,20 +1,98 @@
 import React, {useContext} from "react"
 import { QuantityContext } from "../App"
-import { useNavigate} from "react-router-dom"
+import { useNavigate, Link} from "react-router-dom"
 
 export default function Details(){
-     const { setIsDetailView } = useContext(QuantityContext)
-
-    const navigate = useNavigate()
-    const navigateToShipping = () =>{
-        navigate("shipping")
-        setIsDetailView(false)
-      }
-
+const { setIsDetailView } = useContext(QuantityContext)
+const navigate = useNavigate()
+const navigateToShipping = (e) =>{
+    e.preventDefault()
+     navigate("shipping")
+     setIsDetailView(false)
+}
     return(
         <div>
-            <h1>moses</h1>
-            <button onClick={navigateToShipping}>ship</button>
+            <form action="">
+                <div className="contact">
+                    <div className="details--first">
+                        <h1>Contact</h1>
+                        <p>Do you have an account? <Link to="#" className="link"> Login</Link></p>
+                    </div>
+                    <input type="text" placeholder="Email or mobile phone number" className="mobile---email"/>  
+                    <div className="checkbox--container">
+                        <input id="checkbox--" type="checkbox" />
+                        <label htmlFor="checkbox--">Add me to Candleaf newsletter for a 10% discount</label>
+                    </div>
+                </div>
+                <div className="shipping--address">
+                    <h2>Shipping Address</h2>
+                    <div className="wide">
+                        <input type="text" placeholder="Name" />
+                        <input type="text" className="second--name" placeholder="Second Name"/>
+                    </div>
+                    <input type="text" className="wide" placeholder="Address and number"/>
+                    <input type="text" className="wide" placeholder="Shipping note (optional)"/>
+                    <div className="wide second--wide">
+                        <input type="text" placeholder="City" />
+                        <input type="text" placeholder="Postal Code" id="postal"/>
+                        <select name="province" id="province" className="province">
+                            <option value="---">Pick a province</option>
+                            <option value="abia">Abia</option>
+                            <option value="adamawa">Adamawa</option>
+                            <option value="akwa-ibom">Akwa Ibom</option>
+                            <option value="anambra">Anambra</option>
+                            <option value="bauchi">Bauchi</option>
+                            <option value="bayelsa">Bayelsa</option>
+                            <option value="benue">Benue</option>
+                            <option value="borno">Borno</option>
+                            <option value="cross-river">Cross River</option>
+                            <option value="delta">Delta</option>
+                            <option value="ebonyi">Ebonyi</option>
+                            <option value="edo">Edo</option>
+                            <option value="ekiti">Ekiti</option>
+                            <option value="enugu">Enugu</option>
+                            <option value="gombe">Gombe</option>
+                            <option value="imo">Imo</option>
+                            <option value="jigawa">Jigawa</option>
+                            <option value="kaduna">Kaduna</option>
+                            <option value="kano">Kano</option>
+                            <option value="katsina">Katsina</option>
+                            <option value="kebbi">Kebbi</option>
+                            <option value="kogi">Kogi</option>
+                            <option value="kwara">Kwara</option>
+                            <option value="lagos">Lagos</option>
+                            <option value="nasarawa">Nasarawa</option>
+                            <option value="niger">Niger</option>
+                            <option value="ogun">Ogun</option>
+                            <option value="ondo">Ondo</option>
+                            <option value="osun">Osun</option>
+                            <option value="oyo">Oyo</option>
+                            <option value="plateau">Plateau</option>
+                            <option value="rivers">Rivers</option>
+                            <option value="sokoto">Sokoto</option>
+                            <option value="taraba">Taraba</option>
+                            <option value="yobe">Yobe</option>
+                            <option value="zamfara">Zamfara</option>
+                            <option value="fct">Federal Capital Territory (FCT)</option>
+                        </select>
+                    </div>
+                    <select name="country" id="country" className="province wide padding">
+                        <option value="nigeria">Nigeria</option>
+                        <option value="usa">United State</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="Cameroon">Cameroon</option>
+                        <option value="Australia">Australia</option>
+                    </select>
+                    <div className="checkbox--container">
+                        <input id="checkbox--" type="checkbox" />
+                        <label htmlFor="checkbox--">Save this information for a future fast checkout</label>
+                    </div>
+                </div>
+                <div className="back-shipping">
+                    <Link to="/cart" className="back">Back to cart</Link>
+                    <button onClick={navigateToShipping}>Go to shipping</button>
+                </div>
+            </form>
         </div>  
     )
 } 
