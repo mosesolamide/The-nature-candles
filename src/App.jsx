@@ -26,7 +26,9 @@ export default function App() {
     },
   }
 
-  const [quantities, setQuantities] = useState({})
+const [quantities, setQuantities] = useState({})
+const [isDetailsViewed,setIsDetailView] = useState(true)
+const [isShippingViewed,setIsShippingView] = useState(true)
 
   // Increment quantity for a specific product
   const incrementQuantity = (id) => {
@@ -52,8 +54,7 @@ const viewed = {
     fontSize: "1rem",
     scale: 1
 } 
-const [isDetailsViewed,setIsDetailView] = useState(true)
-const [isShippingViewed,setIsShippingView] = useState(true)
+
 
   return (
     <QuantityContext.Provider value={{

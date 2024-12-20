@@ -667,6 +667,59 @@ hr{
 .back{
     color: #56B280;
 }
+
+.checkbox-{
+    margin-right: 5px;
+}
+
+.orderDetails{
+    border: 1px solid #56B280;
+    border-radius: 6px;
+    margin-top: 45px;
+    font-size: .9em;
+}
+
+.orderDetails hr{
+   background-color: #56B280;
+}
+
+.orderDetails p{
+    padding: 20px;
+    color: #818181;
+}
+
+.orderDetails span{
+    color: #000;
+}
+
+.shipping-method{
+    margin-top: 35px;
+}
+
+.shipping-method h1{
+    font-size: 1.3em;
+    color: #000;
+}
+
+.shipping-method-radio{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #56B280;
+    border-radius: 5px;
+    margin-top: 28px;
+}
+
+.shipping-method-radio b{
+    margin-left: auto;
+    font-size: .9em;
+}
+
+.shipping-method-radio p{
+    margin-left: 15px;
+}
+
+
 /* media query */
 
 @media(min-width:600px){
