@@ -673,7 +673,7 @@ hr{
 }
 
 .orderDetails{
-    border: 1px solid #56B280;
+    border: 1px solid #E5E5E5;
     border-radius: 6px;
     margin-top: 45px;
     font-size: .9em;
@@ -684,7 +684,7 @@ hr{
 }
 
 .orderDetails p{
-    padding: 20px;
+    padding: 15px;
     color: #818181;
 }
 
@@ -705,7 +705,7 @@ hr{
     display: flex;
     align-items: center;
     padding: 20px;
-    border: 1px solid #56B280;
+    border: 1px solid #E5E5E5;
     border-radius: 5px;
     margin-top: 28px;
 }
@@ -717,6 +717,74 @@ hr{
 
 .shipping-method-radio p{
     margin-left: 15px;
+}
+
+.Payment-method h1{
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #000;
+    margin: 30px 0;
+}
+
+.credit-card{
+    border: 1px solid #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 19px 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}  
+
+.input-card{
+    width: 400px;
+    height: 40px;
+    text-indent: 15px;
+}
+
+.card-header{
+    color: #56B280;
+    display: flex;
+    align-items: center;
+    background-color: #c4e2d1;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+}
+
+.card-header p{
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.cvv{
+    display: flex;
+    gap: 20px;
+}
+
+.cvv input{
+    height: 40px;
+    width: 190px;
+    text-indent: 15px;
+}
+
+.tax-information h2{
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 30px 0;
+}
+
+.tax-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tax-form input{
+    height: 40px;
+    text-indent: 15px;
 }
 
 

@@ -1,7 +1,5 @@
-import React ,{useEffect}from "react"
+import React ,{useEffect,useContext,useState}from "react"
 import { useLocation } from "react-router-dom"
-import { useState } from "react"
-import { useContext } from "react"
 import {QuantityContext } from "../App"
 import { motion } from "framer-motion"
 

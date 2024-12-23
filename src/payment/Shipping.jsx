@@ -2,7 +2,6 @@ import React, {useContext} from "react"
 import { QuantityContext } from "../App"
 import { useNavigate, Link} from "react-router-dom"
 
-
 export default function Shipping(){
 const { setIsShippingView } = useContext(QuantityContext)
 const navigate = useNavigate()
@@ -12,8 +11,6 @@ const navigateToPayment = () =>{
     setIsShippingView(false) 
 }
 const orderDetails = JSON.parse(localStorage.getItem("orderDetails"))
-console.log(orderDetails)
-
     return(
         <>
             <div className="orderDetails">
@@ -24,7 +21,7 @@ console.log(orderDetails)
             <div className="shipping-method">
                 <h1>Shipping method</h1>
                 <div className="shipping-method-radio">
-                    <input type="radio" />
+                    <input type="radio" required/>
                     <p>Standard Shipping</p>
                     <b>Free</b>
                 </div>
