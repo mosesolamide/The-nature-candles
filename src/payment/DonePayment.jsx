@@ -22,7 +22,7 @@ const backHome = ()=>{
                 Please check your inboxin the future for your order updates.
             </p>
             <div className="back-shipping">
-                <button onClick={backHome}>Back to shopping</button>
+                <button type="button" onClick={backHome}>Back to shopping</button>
             </div>
             <Link className="print">Print reciept</Link>
         </div>

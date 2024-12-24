@@ -8,7 +8,7 @@ export default function Payment(){
     const navigate = useNavigate()
     
     const navigateToDone = () =>{
-        navigate("/payment-progress/done")
+        navigate("/payment-progress/done", { replace: true })
         setIsShippingView(false) 
     }
     return(
@@ -46,7 +46,7 @@ export default function Payment(){
             </div>
              <div className="back-shipping">
                 <Link to="/payment-progress/shipping" className="back">Back to shipping</Link>
-                <button onClick={navigateToDone}>Pay Now</button>
+                <button type="button" onClick={navigateToDone}>Pay Now</button>
             </div>
         </form>  
     )
