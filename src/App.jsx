@@ -9,8 +9,9 @@ import Details from "./payment/Details"
 import PaymentLayout from "./payment/PaymentLayout"
 import Shipping from "./payment/Shipping"
 import Payment from "./payment/Payment"
+import DonePayment from "./payment/DonePayment";
 
-export const QuantityContext = createContext();
+export const QuantityContext = createContext()
 
 export default function App() {
 
@@ -46,7 +47,7 @@ const [isShippingViewed,setIsShippingView] = useState(true)
     }));
   };
 
-  const style = {
+const style = {
     color: "#56B280"
 }
 const viewed = {
@@ -54,7 +55,6 @@ const viewed = {
     fontSize: "1rem",
     scale: 1
 } 
-
 
   return (
     <QuantityContext.Provider value={{
@@ -67,7 +67,7 @@ const viewed = {
       viewed,
       style,
       isShippingViewed,
-      setIsShippingView
+      setIsShippingView,
     }}>
       <BrowserRouter
         future={{
@@ -85,6 +85,7 @@ const viewed = {
             <Route index element={<Details />} />
             <Route path="shipping" element={<Shipping />} />
             <Route path="payment" element={<Payment />} />
+            <Route path="done" element={<DonePayment />}/>
           </Route>
         </Routes>
       </BrowserRouter>

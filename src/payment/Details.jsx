@@ -18,6 +18,21 @@ const [formsData, setFormsData] = useState({
     saveInfo:false
 })
 
+useEffect(()=>{
+    const randomId = []
+    for(let i = 0; i < 5; i++){
+        const generateId = Math.floor(Math.random()*9)
+        randomId.push(generateId)
+    }
+
+    const newId = randomId.join("")
+
+    setFormsData(prevData => ({
+        ...prevData,
+        orderId: newId
+    }))
+},[])
+
 const handleChange = (e) => {
     const { name, value, type, checked } = e.target
     setFormsData(prevData => ({

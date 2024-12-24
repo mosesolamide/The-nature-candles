@@ -1,9 +1,16 @@
 import React from "react"
 import { BsCreditCardFill } from "react-icons/bs"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Payment(){
     const orderDetails = JSON.parse(localStorage.getItem("orderDetails"))
+
+    const navigate = useNavigate()
+    
+    const navigateToDone = () =>{
+        navigate("/payment-progress/done")
+        setIsShippingView(false) 
+    }
     return(
         <form>
              <div className="orderDetails">
@@ -39,7 +46,7 @@ export default function Payment(){
             </div>
              <div className="back-shipping">
                 <Link to="/payment-progress/shipping" className="back">Back to shipping</Link>
-                <button>Pay Now</button>
+                <button onClick={navigateToDone}>Pay Now</button>
             </div>
         </form>  
     )
